@@ -1,0 +1,10 @@
+id = 1009	name = iii	score = 31
+id = 1005	name = eee	score = 33
+id = 1001	name = aaa	score = 59
+id = 1007	name = ggg	score = 78
+id = 1006	name = fff	score = 85
+id = 1003	name = ccc	score = 87
+id = 1004	name = ddd	score = 89
+id = 1010	name = jjj	score = 93
+id = 1002	name = bbb	score = 96
+id = 1008	name = hhh	score = 97
