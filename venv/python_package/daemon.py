@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time   : 2018/4/24 21:16
 # @Author : merlinhuang
-# @File   : daemon'.py
+# @File   : daemon.py
 
 
 
@@ -15,5 +15,4 @@ print(os.linesep)
 
 for i in range(0, 1000):
     print(random.randint(1, 6))
-
 

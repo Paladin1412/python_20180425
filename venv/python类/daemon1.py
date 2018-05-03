@@ -47,7 +47,7 @@ class Student(object):
 
 
 student1 = Student("bob", 20, "ops")
-# 外部不可以访问实例内外属性
+# 外部不可以访问实例私有属性
 # print("studennt1's job is {0}".format(student1.__job))
 student1.print_score()
 # 外部访问保护变量，但不建议这么做
