@@ -1,2 +1,2 @@
-2018-05-09 22:40:10,717 __main__ daemon1.py line: 63 ERROR: 除数不能为零
-2018-05-09 22:40:10,718 __main__ daemon1.py line: 66 WARNING: 文件没有正常关闭
+2018-05-15 21:01:25,245 __main__ daemon1.py line: 63 ERROR: 除数不能为零
+2018-05-15 21:01:25,246 __main__ daemon1.py line: 66 WARNING: 文件没有正常关闭
