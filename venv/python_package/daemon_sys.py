@@ -10,7 +10,6 @@ sys模块主要是针对与Python解释器相关的变量和方法
 """
 import sys
 
-
 # sys.argv 获取命令行参数列表，第一个参数是py程序本身文件名，列表索引为0
 
 # 输出脚本名
@@ -69,7 +68,6 @@ find_module('sys')
 find_module('time')
 find_module('zlib')
 find_module('string')
-
 
 # a = input("dd\n")
 # s = input("Please input name!")
