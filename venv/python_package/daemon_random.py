@@ -21,7 +21,7 @@ import random
 # 传入一个先前利用getstate方法获得的状态对象，使得生成器恢复到这个状态。
 # random.setstate(state)
 
-# 返回一个不大于K位的Python整数（十进制），比如k = 10，则结果是0 ~ 2^10之间的整数。
+# 返回一个不大于 2**K 的Python整数（十进制），比如k = 10，则结果是0 ~ 2^10之间的整数。
 # random.getrandbits(k)
 print(random.getrandbits(2))
 
@@ -126,14 +126,16 @@ import random
 checkcode = ''
 # 4个长度
 for i in range(4):
-    current = random.randrange(0,4)
-    # 取字母
+    current = random.randrange(0, 4)
+    # 取字母,3/4概率
     if current != i:
-        # 65 - 90 对应 A - z
-        temp = chr(random.randint(65,90))
-    # 取数字
+        # 65 - 90 对应A-Z
+        # temp = chr(random.randint(65,90))
+        # 97 - 122 对应a-z
+        temp = chr(random.randint(97, 122))
+    # 取数字,1/4概率
     else:
-        temp = random.randint(0,9)
+        temp = random.randint(0, 9)
     checkcode += str(temp)
 print(checkcode)
 
@@ -147,10 +149,12 @@ def gen_random_string(length):
     num_of_numeric = random.randint(1,length-1)
     # 剩下的都是字母
     num_of_letter = length - num_of_numeric
-    # 随机生成数字
+    # 随机生成数字,循环项: random.choice(string.digits)
     numerics = [random.choice(string.digits) for i in range(num_of_numeric)]
-    # 随机生成字母
+    print(numerics)
+    # 随机生成字母,循环项: random.choice(string.ascii_letters)
     letters = [random.choice(string.ascii_letters) for i in range(num_of_letter)]
+    print(letters)
     # 结合两者
     all_chars = numerics + letters
     # 洗牌
@@ -160,4 +164,4 @@ def gen_random_string(length):
     return result
 
 if __name__ == '__main__':
-    print(gen_random_string(12))
+    print(gen_random_string(18))
