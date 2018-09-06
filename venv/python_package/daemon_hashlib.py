@@ -114,4 +114,4 @@ def login(username, password):
 assert login('michael', '123456')
 
 # assert后表达式值为False,输出错误信息，并抛出AssertionError
-assert login('michael', '123ww456'), 'not login'
+# assert login('michael', '123ww456'), 'not login'
