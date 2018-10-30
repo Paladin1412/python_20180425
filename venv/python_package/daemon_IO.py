@@ -8,7 +8,7 @@
 from io import StringIO
 
 """
-StringIO和BytesIO是在内存中操作str和bytes的方法，使得和读写文件具有一致的接口
+StringIO和BytesIO是在内存中操作str和bytes的方法，使用和读写文件具有一致的接口
 """
 
 """
@@ -28,7 +28,7 @@ f.write("world!")
 # getvalue()方法获得写入后的str
 print(f.getvalue())
 
-# 要读取StringIO，可以用一个str初始化StringIO，然后，像读文件一样读取：
+# 要读取StringIO，可以用一个str初始化StringIO，然后，像读文件一样读取:
 f = StringIO("Hello!\nWeb!\nUp!")
 while 1:
     s = f.readline()
@@ -58,6 +58,15 @@ print(f.getvalue().decode('utf-8'))
 # 和StringIO类似，可以用一个bytes初始化BytesIO，然后，像读文件一样读取：
 f = BytesIO(b'\xe5\xad\xa6\xe4\xb9\xa0')
 print(f.read())
+
+ram_bytes = BytesIO()
+ram_bytes.write(b'hello world!')
+ram_bytes.write(b'\n')
+ram_bytes.write(b"just do it!")
+# 输出内存中的bytes类型
+print(ram_bytes.getvalue())
+# 输出解码后的str类型
+print(ram_bytes.getvalue().decode('utf-8'))
 
 
 # 几个特殊的方法
