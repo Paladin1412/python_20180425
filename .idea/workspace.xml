@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c98d7f11-724b-4f0f-9c5b-6f8fcadee2f0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/test_project.iml" afterPath="$PROJECT_DIR$/.idea/test_project.iml" />
-      <change beforePath="$PROJECT_DIR$/venv/python_package/daemon_random.py" afterPath="$PROJECT_DIR$/venv/python_package/daemon_random.py" />
-    </list>
+    <list default="true" id="c98d7f11-724b-4f0f-9c5b-6f8fcadee2f0" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/venv/" />
     <ignored path="$PROJECT_DIR$/venv1/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +20,8 @@
       <file leaf-file-name="daemon_random.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_random.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+            <state relative-caret-position="0">
+              <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -45,7 +40,7 @@
       <file leaf-file-name="daemon_hashlib.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_hashlib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1606">
+            <state relative-caret-position="1679">
               <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
               <folding />
             </state>
@@ -55,7 +50,7 @@
       <file leaf-file-name="daemon_json.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_json.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1558">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -65,7 +60,7 @@
       <file leaf-file-name="daemon_IO.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_IO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
+            <state relative-caret-position="741">
               <caret line="80" column="53" lean-forward="false" selection-start-line="80" selection-start-column="53" selection-end-line="80" selection-end-column="53" />
               <folding />
             </state>
@@ -90,9 +85,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="158" />
-    <option name="y" value="56" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="394" />
+    <option name="y" value="27" />
     <option name="width" value="1400" />
     <option name="height" value="971" />
   </component>
@@ -111,23 +106,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="learning_python_20180622" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learning_python_20180622" type="462c0819:PsiDirectoryNode" />
+              <item name="test_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_project" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="learning_python_20180622" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learning_python_20180622" type="462c0819:PsiDirectoryNode" />
+              <item name="test_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_project" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="learning_python_20180622" type="b2602c69:ProjectViewProjectNode" />
-              <item name="learning_python_20180622" type="462c0819:PsiDirectoryNode" />
+              <item name="test_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test_project" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
               <item name="python_package" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -220,21 +215,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="158" y="56" width="1400" height="971" extended-state="0" />
+    <frame x="394" y="27" width="1400" height="971" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11257485" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11257485" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17388059" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1761194" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -285,6 +281,46 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_string.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_hashlib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1679">
+          <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_json.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_IO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1840">
+          <caret line="80" column="53" lean-forward="false" selection-start-line="80" selection-start-column="53" selection-end-line="80" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -358,7 +394,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_hashlib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1606">
+        <state relative-caret-position="1679">
           <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
           <folding />
         </state>
@@ -366,8 +402,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_random.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -380,9 +416,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/python_package/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_json.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1558">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -390,7 +434,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/python_package/daemon_IO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
+        <state relative-caret-position="741">
           <caret line="80" column="53" lean-forward="false" selection-start-line="80" selection-start-column="53" selection-end-line="80" selection-end-column="53" />
           <folding />
         </state>
