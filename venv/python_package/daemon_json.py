@@ -86,3 +86,9 @@ js = json.dumps(byte.decode())
 print(js)
 print(type(js))
 print(json.loads(js))
+
+#　测试返回
+ff = open("test.json", 'r')
+str = json.load(ff)
+ff.close()
+print(str["error"])

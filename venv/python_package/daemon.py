@@ -15,6 +15,15 @@ print(datetime.now().second)
 print(datetime.now().microsecond)
 
 
+import time
+# 时间戳
+print(time.time())
+# 从时间戳得到一个时间对象
+time_str = datetime.fromtimestamp(time.time())
+print(time_str)
+print(type(time_str))
+# 将时间对象转为时间字符串
+print(datetime.strftime(time_str, "%Y-%m-%d %H:%M:%S"))
 
 import subprocess
 # 等待子进程退出，返回退出信息
@@ -28,7 +37,7 @@ child2 = subprocess.Popen(["ipconfig"])
 print(child2)
 # 输出子进程的PID
 print(child2.pid)
-# communicate()方法与子进程交互，向标准输入发送数据，从标准输出和标准错误读取返回信息。返回一个月元组(stdout, stderr)
+# communicate()方法与子进程交互，向标准输入发送数据，从标准输出和标准错误读取返回信息。返回一个元组(stdout, stderr)
 print(child2.communicate())
 
 
