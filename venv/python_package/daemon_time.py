@@ -26,3 +26,6 @@ print("Today is the {0}th day of the year.".format(local_time.tm_yday))
 
 # time 是不可变类型，所有时间只读，不可更改
 # local_time.tm_year = 2017
+
+# test
+print(time.time())
