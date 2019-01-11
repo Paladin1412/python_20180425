@@ -174,3 +174,6 @@ procedure()
 time_stop = time.clock()
 # 函数procedure()CPU运行时间
 print("{0} seconds process time!".format(time_stop - time_start))
+
+## tset git stash
+print(time.time())
