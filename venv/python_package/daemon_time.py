@@ -104,6 +104,7 @@ str_time = time.ctime()
 print(str_time)
 str_time = time.ctime(time.time())
 print(str_time)
+# Mon Feb  8 17:51:39 2038
 # 指定一个时间戳
 str_time = time.ctime(1)   # Thu Jan  1 08:00:01 1970,当前时区东八区，加8小时
 print(str_time)
@@ -165,9 +166,12 @@ print(time_tuple)
 """
 # 程序从开始到当前CPU时间
 print(time.clock())
-def procedure():
+
+
+def procedure() -> None:  # -> None 为程序注释，返回值为None
     """test time.clock()"""
     time.sleep(3)
+
 
 time_start = time.clock()
 procedure()
