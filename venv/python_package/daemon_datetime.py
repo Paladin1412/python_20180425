@@ -32,6 +32,7 @@ datetime.MAXYEAR    datetime.date或datetime.datetime对象所允许的年份的
 """
 定义：class datetime.date(year, month, day)
 datetime模块下的日期类，只能处理年月日这种日期时间，不能处理时分秒。
+
 在构造datetime.date对象的时候需要传递下面的参数：
     参数名称	取值范围
     year	[MINYEAR, MAXYEAR]
@@ -41,17 +42,17 @@ datetime模块下的日期类，只能处理年月日这种日期时间，不能
 主要属性和方法：    
 """
 # date.max	        date对象所能表示的最大日期：9999-12-31
-# 源码定义： date.max = date(9999, 12, 31)
+# 源码定义： date.max = datetime.date(9999, 12, 31)
 print(type(date.max))
 print(date.max)
 
 # date.min	        date对象所能表示的最小日期：00001-01-01
-# 源码定义：date.min = date(1, 1, 1)
+# 源码定义：date.min = datetime.date(1, 1, 1)
 print(type(date.min))
 print(date.min)
 
 # date.resoluation	date对象表示的日期的最小单位：天
-# 源码定义：date.resolution = timedelta(days=1)
+# 源码定义：date.resolution = datetime.timedelta(days=1)
 print(type(date.resolution))
 print(date.resolution)
 # 等价于 datetime.timedelta 类的一个实例
@@ -76,3 +77,8 @@ print(d.year)
 print(d.month)
 print(d.day)
 
+# date.replace(year[, month[, day]])  生成并返回一个新的日期对象，原日期对象不变
+print(type(d.replace(year=2018, month=8, day=8)))
+print(d.replace(year=2018, month=8, day=8))
+# 原日期对象不变
+print(d)
