@@ -80,5 +80,5 @@ print(d.day)
 # date.replace(year[, month[, day]])  生成并返回一个新的日期对象，原日期对象不变
 print(type(d.replace(year=2018, month=8, day=8)))
 print(d.replace(year=2018, month=8, day=8))
-# 原日期对象不变test
+# 原日期对象不变
 print(d)
