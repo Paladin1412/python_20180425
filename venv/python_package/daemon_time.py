@@ -147,7 +147,6 @@ print(string_time) # 2018-12-31 08:22:32 UTC早8小时
 ## time.strptime(string[, format]) 将格式化时间字符串转化成结构化时间
 # time.strptime()方法根据指定的格式(fromat)把一个时间字符串(string)解析为时间元组,
 # 要注意的是, string提供的字符串要和format参数的格式一一对应, 并且值也要在合法的区间范围内，千万不要整出14个月来。
-
 str_time = "2018-12-31 16:40:30"
 time_tuple = time.strptime(str_time, "%Y-%m-%d %H:%M:%S")
 # 输出给定格式化时间字符串的struct_time元组

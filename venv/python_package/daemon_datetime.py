@@ -5,7 +5,7 @@
 # @File   : daemon_datetime.py
 
 
-from datetime import date, timedelta, time, datetime
+from datetime import date, timedelta, time, datetime, timezone
 
 # datetime 模块
 """
@@ -28,7 +28,6 @@ datetime.MAXYEAR    datetime.date或datetime.datetime对象所允许的年份的
 """
 
 # datetime.date 类
-
 """
 定义：class datetime.date(year, month, day)
 datetime模块下的日期类，只能处理年、月、日这种日期时间，不能处理时分秒。
@@ -128,7 +127,7 @@ datetime模块下的时间类，只能处理时分秒。
 
 # 实例化,默认参数 hour=0, minute=0, second=0, microsecond=0, tzinfo=None
 time1 = time()
-print(time1)  # __str__实现
+print(time1)  # 00:00:00 __str__实现
 # 指定参数,创建一个 time 对象
 time1 = time(8, 0, 8, 999)
 print(time1)
@@ -177,4 +176,43 @@ print(time4.isoformat(timespec='milliseconds'))  # 指定毫秒格式输出
 # 底层调用时间模块 time.strftime(),返回一个时间 string
 print(time(10, 8, 30, 999).strftime("%H:%M:%S"))
 print(time(10, 8, 30, 999).strftime("%H:%M:%S.%f"))
+
+
+# datetime.datetime类
+"""
+datetime模块下的日期时间类, 是datetime.date类的子类
+定义: datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])
+    The year, month and day arguments are required.
+    year, month=None, day=None, 
+    hour=0, minute=0, second=0,microsecond=0,
+    tzinfo=None
+构造datetime实例时需要传递的参数：
+    year	[MINYEAR, MAXYEAR]
+    month	[1, 12]
+    day	    [1, 指定年份的月份中的天数]
+    hour	[0, 23]
+    minute	[0, 59]
+    second	[0, 59]
+    microsecond	[0, 1000000]
+    tzinfo	tzinfo的子类对象，如timezone类的实例
+"""
+# datetime的一个实例对象
+# The year, month and day arguments are required.
+dt = datetime(2019, 12, 12)
+print(dt)
+# The full format looks like 'YYYY-MM-DD HH:MM:SS.mmmmmm'.
+dt = datetime(2019, 4, 7, 20, 58, 30, 666)
+print(dt)  # 2019-04-07 20:58:30.000666 自定义__str__()实现
+
+# If self.tzinfo is not None, the UTC offset is also attached, giving a full
+# format of 'YYYY-MM-DD HH:MM:SS.mmmmmm+HH:MM
+dt = datetime(2019, 4, 7, 20, 58, 30, 666, timezone.utc)
+print(dt)  # 2019-04-07 20:58:30.000666+00:00
+print(dt.__str__())
+
+# 主要方法
+
+# datetime.today()	返回一个表示当前本地日期时间的datetime对象
+print(datetime.today())  # 实现 datetime(y, m, d, hh, mm, ss = time.localtime(time.time))
+print(type(datetime.today()))  # <class 'datetime.datetime'>
 
