@@ -215,4 +215,5 @@ print(dt.__str__())
 # datetime.today()	返回一个表示当前本地日期时间的datetime对象
 print(datetime.today())  # 实现 datetime(y, m, d, hh, mm, ss = time.localtime(time.time))
 print(type(datetime.today()))  # <class 'datetime.datetime'>
+# test
 
