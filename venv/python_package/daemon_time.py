@@ -142,7 +142,7 @@ string_time = time.strftime("%Y-%m-%d %H:%M:%S")
 print(string_time)
 # 指定time.gmtime()作为struct_time
 string_time = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
-print(string_time) # 2018-12-31 08:22:32 UTC早8小时
+print(string_time)  # 2018-12-31 08:22:32 UTC早8小时
 
 ## time.strptime(string[, format]) 将格式化时间字符串转化成结构化时间
 # time.strptime()方法根据指定的格式(fromat)把一个时间字符串(string)解析为时间元组,

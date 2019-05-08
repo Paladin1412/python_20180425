@@ -38,6 +38,7 @@ datetime模块下的日期类，只能处理年、月、日这种日期时间，
     month	[1, 12]
     day	    [1, 指定年份的月份中的天数]
 """
+print("The instance of datetime.date")
 # 主要属性和方法
 # datetime.date 实例
 print(date(2018, 12, 12))  # __str__ = isoformat
@@ -124,7 +125,7 @@ datetime模块下的时间类，只能处理时分秒。
         fold (keyword only, default to zero)
         
 """
-
+print("The instance of datetime.time")
 # 实例化,默认参数 hour=0, minute=0, second=0, microsecond=0, tzinfo=None
 time1 = time()
 print(time1)  # 00:00:00 __str__实现
@@ -169,7 +170,7 @@ print(time3.replace().__class__)
 time4 = time(10, 6, 10, 100999)
 # time.isoformat()方法返回一个‘HH:MM:SS.%f’格式的时间字符串 Return the time formatted according to ISO
 print(time4.isoformat())  # 默认最小单位是微秒
-print(time4.isoformat().__class__)  # 默认最小单位是微秒
+print(time4.isoformat().__class__)  # 字符串格式
 print(time4.isoformat(timespec='milliseconds'))  # 指定毫秒格式输出
 
 # time.strftime()方法 返回指定格式的时间字符串，与time模块的strftime(format, struct_time)功能相同
@@ -180,6 +181,7 @@ print(time(10, 8, 30, 999).strftime("%H:%M:%S.%f"))
 
 # datetime.datetime类
 """
+一定要注意这是datetime模块下的datetime类，千万不要搞混了！
 datetime模块下的日期时间类, 是datetime.date类的子类
 定义: datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])
     The year, month and day arguments are required.
@@ -196,6 +198,7 @@ datetime模块下的日期时间类, 是datetime.date类的子类
     microsecond	[0, 1000000]
     tzinfo	tzinfo的子类对象，如timezone类的实例
 """
+print("The instance of datetime.datetime")
 # datetime的一个实例对象
 # The year, month and day arguments are required.
 dt = datetime(2019, 12, 12)
@@ -204,15 +207,127 @@ print(dt)
 dt = datetime(2019, 4, 7, 20, 58, 30, 666)
 print(dt)  # 2019-04-07 20:58:30.000666 自定义__str__()实现
 
+# 初始化带时区信息
 # If self.tzinfo is not None, the UTC offset is also attached, giving a full
-# format of 'YYYY-MM-DD HH:MM:SS.mmmmmm+HH:MM
+# format of 'YYYY-MM-DD HH:MM:SS.mmmmmm+HH:MM'
 dt = datetime(2019, 4, 7, 20, 58, 30, 666, timezone.utc)
 print(dt)  # 2019-04-07 20:58:30.000666+00:00
 print(dt.__str__())
 
-# 主要方法
+
+# 主要属性和方法
 
 # datetime.today()	返回一个表示当前本地日期时间的datetime对象
+# today()方法继承自datetime.date类
 print(datetime.today())  # 实现 datetime(y, m, d, hh, mm, ss = time.localtime(time.time))
 print(type(datetime.today()))  # <class 'datetime.datetime'>
+
+# datetime.now([tz]) tz可选，返回指定时区的日期时间的datetime对象，tz不指定时，返回当前本地日期时间的datetime对象
+print(datetime.now())  # 2019-05-06 21:13:31.719628
+# 指定tz为timezone.utc，比当前慢8小时
+print(datetime.now(timezone.utc))  # 2019-05-06 13:13:31.719628+00:00
+
+print("echo test")
+# datetime.utcnow() 返回当前utc日期时间的datetime对象 Construct a UTC datetime from time.time().
+print(datetime.utcnow())
+
+# datetime.fromtimestamp(t[, tz]) 根据指定的时间戳创建一个datetime对象
+import time
+# tz默认为None
+print(datetime.fromtimestamp(time.time()))
+# 带时区信息，返回'YYYY-MM-DD HH:MM:SS.mmmmmm+HH:MM'格式的datetime对象
+print(datetime.fromtimestamp(time.time(), timezone.utc))
+
+# datetime.utcfromtimestamp(t) 根据指定的时间戳创建一个UTC时区的 datetime对象. 因为本身就是UTC时区，所以无utc offset
+# 'YYYY-MM-DD HH:MM:SS.mmmmmm'
+print(datetime.utcfromtimestamp(time.time()))
+
+# datetime.combine(date, time) 把指定的date和time对象整合成一个datetime对象
+print(datetime.combine(date.today(), time1))
+print(datetime.combine(date.today(), time2))
+
+# datetime.strptime(date_string, format) 将日期时间字符串转换为datetime对象
+print(datetime.strptime("2019-05-07 12:10:01", "%Y-%m-%d %H:%M:%S"))
+print(type(datetime.strptime("2019-05-07 12:10:01", "%Y-%m-%d %H:%M:%S")))
+print(datetime.strptime("2019-05-07 16:38:47.281021", "%Y-%m-%d %H:%M:%S.%f"))
+print(datetime.strptime("2019-05-07 16:38:47.281021", "%Y-%m-%d %H:%M:%S.%f").__class__)
+
+# dt.year, dt.month, dt.day 年、月、日
+dt = datetime.today()
+print(dt.year)
+print(dt.month)
+print(dt.day)
+# dt.hour, dt.minute, dt.second 时、分、秒
+print(dt.hour)
+print(dt.minute)
+print(dt.second)
+# dt.microsecond, dt.tzinfo	微秒、时区信息
+print(dt.microsecond)
+print(dt.tzinfo)
+
+# dt.date()	获取datetime对象对应的date对象
+print(dt.date())
+print(dt.date().__class__)
+# dt.time()	获取datetime对象对应的time对象, tzinfo 为None
+print(dt.time())
+# dt.timetz() 获取datetime对象对应的time对象，tzinfo与datetime对象的tzinfo相同
+print(dt.timetz())  # 17:22:46.590853 tz默认为None
+print(datetime.now(timezone.utc).timetz())  # 指定tz为utc, 比当前时间慢8小时 09:22:46.590853+00:00
+
+# dt.replace()	生成并返回一个新的datetime对象，如果所有参数都没有指定，则返回一个与原datetime对象相同的对象
+dt = datetime.today()
+print(dt.replace())
+print(dt.replace(2018))
+print(dt)
+
+# dt.timetuple() 返回datetime对象对应的time.struct_time对象
+# tzinfo默认为None, dst=-1
+print(dt.timetuple())
+# <class 'time.struct_time'>
+print(type(dt.timetuple()))
+
+# dt.utctimetuple() 返回datetime对象对应的utc时间的tuple
+# Return UTC time tuple compatible with time.gmtime().
+# 当前时区为UTC+8,UTC时间比当前时间慢8小时
+print(datetime.utcnow().utctimetuple())  # bug: utctimetuple() can not -offset
+
+# dt.timestamp() 返回datetime对象对应的时间戳，Python 3.3才新增的
+dt = datetime.now()
+print(dt.timestamp())
+# 当前时区为UTC+8,UTC时间比当前时间慢8小时
+print(datetime.utcnow().timestamp())
+
+# dt.toordinal() 继承自 datetime.date类，返回日期是是自 0001-01-01 开始的第多少天
+# 当前日期到0001-01-01过了多少天
+print(dt.toordinal())
+# utc时区，时间戳为10s，即1970-01-01 00:00:10到0001-01-01过了多少天
+print(datetime.fromtimestamp(10, timezone.utc))
+print(datetime.fromtimestamp(10, timezone.utc).toordinal())
+
+# dt.weekday() 继承自 datetime.date类, 返回日期是星期几，[0, 6]，0表示星期一 "Return day of the week, where Monday == 0 ... Sunday == 6."
+print(datetime.now().weekday())
+# dt.isoweekday() 继承自 datetime.date类, 返回日期是星期几，[1, 7], 1表示星期一 "Return day of the week, where Monday == 1 ... Sunday == 7."
+print(datetime.now().isoweekday())
+
+# dt.isocalendar()继承自 datetime.date类, 返回一个元组，格式为：(year, weekday, isoweekday)
+# Return a 3-tuple containing ISO year(第几年), week number(今年的第几周), and weekday(周几)
+print(datetime.now().isocalendar())
+
+# dt.isoformat([sep[, timespec]]) Return the time formatted according to ISO.
+# Optional argument sep specifies the separator between date and time, default 'T'.
+print(datetime.now().isoformat())
+# 指定date和time的分隔符为空格
+print(datetime.now().isoformat(sep=' '))
+print(datetime.now().isoformat(sep='/'))
+# 指定 timespec 为毫秒
+print(datetime.now().isoformat(sep=' ', timespec="milliseconds"))  # 2019-05-07 21:23:04.635
+
+# dt.ctime() 返回本地日期时间的格式化字符串 "weekday mounth day HH:MM:SS year"
+print(datetime.now().ctime())  # Wed May  8 09:22:53 2019
+print(datetime.now().ctime().__class__)  # <class 'str'>
+
+# dt.strftime(format) 返回指定格式的时间字符串
+print(datetime.now().strftime("%Y/%m/%d %H:%M:%S.%f"))
+print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
 
