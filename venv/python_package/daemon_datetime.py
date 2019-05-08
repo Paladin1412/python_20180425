@@ -221,6 +221,7 @@ print(dt.__str__())
 # today()方法继承自datetime.date类
 print(datetime.today())  # 实现 datetime(y, m, d, hh, mm, ss = time.localtime(time.time))
 print(type(datetime.today()))  # <class 'datetime.datetime'>
+# test
 
 # datetime.now([tz]) tz可选，返回指定时区的日期时间的datetime对象，tz不指定时，返回当前本地日期时间的datetime对象
 print(datetime.now())  # 2019-05-06 21:13:31.719628
