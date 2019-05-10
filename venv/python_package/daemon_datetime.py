@@ -141,6 +141,7 @@ print(time.max.__class__)
 # time.min 	time类所能表示的最小时间 time.min = time(0, 0, 0)
 print(time.min)
 print(time.min.__class__)
+
 # tim.resolution 时间的最小单位，即两个不同时间的最小差值：1微秒
 print(time.resolution)  # time.resolution = datetime.timedelta(microseconds=1)
 print(time.resolution.__class__)
@@ -331,4 +332,46 @@ print(datetime.now().ctime().__class__)  # <class 'str'>
 print(datetime.now().strftime("%Y/%m/%d %H:%M:%S.%f"))
 print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
+
+# datetime.timedelta 类
+"""
+class datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
+
+timedelta 对象表示两个不同时间之间的差值。可以对datetime.date, datetime.time和datetime.datetime对象做算术运算。
+
+将所有内容标准化为天，秒，微秒的形式：
+    Representation: (days, seconds, microseconds)
+
+"""
+print("The instance of datetime.timedelta")
+# 默认 days=0, seconds=0, microseconds=0, milliseconds=0, hours=0, weeks=0
+print(timedelta())  # 0:00:00 __str__() 实现
+print(type(timedelta()))
+
+# timedelta.min 由 timedelta(-999999999)生成的timedelta对象
+print(timedelta.min)  # -999999999 days, 0:00:00
+print(type(timedelta.min))
+
+# timedelta.max 由 timedelta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999)生成的timedelta对象
+print(timedelta.max)  # 999999999 days, 23:59:59.999999
+print(type(timedelta.max))
+
+# timedelta.resolution 由 timedelta(microseconds=1)生成的timedelta对象
+print(timedelta.resolution)  # 0:00:00.000001
+print(type(timedelta.resolution))
+
+# timedelta.days  天 [-999999999, 999999999]
+# 其他时间单位向days换算后，取最终的 days
+print(timedelta(days=2019, seconds=100, microseconds=5000000, milliseconds=1000, weeks=1).days)  # 2019+1*7=2026days
+print(timedelta(days=2019, seconds=100, microseconds=5000000, milliseconds=1000, weeks=1))  # 2026 days, 0:01:46
+
+# timedelta.seconds 秒 [0, 24*3600],小于1天. 大于一天则取余数部分
+# 小单位化大单位，其他时间单位向days换算后，取最终的 seconds
+print(timedelta(days=2019, seconds=100, microseconds=5000000, milliseconds=1000, weeks=1).seconds)  # 100+5+1=106seconds
+print(timedelta(days=2019, seconds=(24*3600), microseconds=5000000, milliseconds=1000, weeks=1).seconds)  # 5+1=6seconds
+
+# timedelta.microseconds 微秒 [0, 999999],小于1S. 大于1s则取余数部分
+# 小单位化大单位，向seconds换算后，去最终的 microseconds
+print(timedelta(days=2019, seconds=(24*3600), microseconds=5000000, milliseconds=1000, weeks=1).microseconds)  # (5+1)%1=0microseconds
+print(timedelta(microseconds=10, milliseconds=10).microseconds)  # (10+10000)%1000000=10010microseconds
 
