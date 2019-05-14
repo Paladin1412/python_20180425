@@ -169,7 +169,7 @@ print(time3.replace())
 print(time3.replace().__class__)
 
 time4 = time(10, 6, 10, 100999)
-# time.isoformat()方法返回一个‘HH:MM:SS.%f’格式的时间字符串 Return the time formatted according to ISO
+# time.isoformat()方法返回一个‘HH:MM:SS.mmmmmm’格式的时间字符串 Return the time formatted according to ISO
 print(time4.isoformat())  # 默认最小单位是微秒
 print(time4.isoformat().__class__)  # 字符串格式
 print(time4.isoformat(timespec='milliseconds'))  # 指定毫秒格式输出
@@ -222,14 +222,13 @@ print(dt.__str__())
 # today()方法继承自datetime.date类
 print(datetime.today())  # 实现 datetime(y, m, d, hh, mm, ss = time.localtime(time.time))
 print(type(datetime.today()))  # <class 'datetime.datetime'>
-# test
+
 
 # datetime.now([tz]) tz可选，返回指定时区的日期时间的datetime对象，tz不指定时，返回当前本地日期时间的datetime对象
 print(datetime.now())  # 2019-05-06 21:13:31.719628
 # 指定tz为timezone.utc，比当前慢8小时
 print(datetime.now(timezone.utc))  # 2019-05-06 13:13:31.719628+00:00
 
-print("echo test")
 # datetime.utcnow() 返回当前utc日期时间的datetime对象 Construct a UTC datetime from time.time().
 print(datetime.utcnow())
 
@@ -336,12 +335,12 @@ print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 # datetime.timedelta 类
 """
 class datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
-
-timedelta 对象表示两个不同时间之间的差值。可以对datetime.date, datetime.time和datetime.datetime对象做算术运算。
-
-将所有内容标准化为天，秒，微秒的形式：
+timedelta 对象表示两个不同日期时间对象之间的差值，可以对datetime.date, datetime.time和datetime.datetime对象做算术运算。
+将所有内容标准化为天,秒,微秒的形式：
     Representation: (days, seconds, microseconds)
-
+返回：
+    datetime supports subtraction of two datetime objects returning a timedelta
+    subtraction of a datetime and a timedelta giving a datetime
 """
 print("The instance of datetime.timedelta")
 # 默认 days=0, seconds=0, microseconds=0, milliseconds=0, hours=0, weeks=0
@@ -371,7 +370,67 @@ print(timedelta(days=2019, seconds=100, microseconds=5000000, milliseconds=1000,
 print(timedelta(days=2019, seconds=(24*3600), microseconds=5000000, milliseconds=1000, weeks=1).seconds)  # 5+1=6seconds
 
 # timedelta.microseconds 微秒 [0, 999999],小于1S. 大于1s则取余数部分
-# 小单位化大单位，向seconds换算后，去最终的 microseconds
+# 小单位化大单位，向seconds换算后，取最终的 microseconds
 print(timedelta(days=2019, seconds=(24*3600), microseconds=5000000, milliseconds=1000, weeks=1).microseconds)  # (5+1)%1=0microseconds
 print(timedelta(microseconds=10, milliseconds=10).microseconds)  # (10+10000)%1000000=10010microseconds
 
+# timedelta.total_seconds() 返回timedelta对象包含的总秒数
+# 一年包含的总秒数
+print(timedelta(365).total_seconds())
+
+# 用timedelta进行时间运算
+## datetime.datetime 与 datetime.timedelta对象，返回 datetime.datetime
+
+dt = datetime.now()
+print(dt)
+# 3天后
+dt += timedelta(3)
+print(dt)
+# datetime与timedelta运算,返回datetime类型对象
+print(type(dt))  # <class 'datetime.datetime'>
+
+# 3天前
+dt = datetime.now()
+dt += timedelta(-3)
+print(dt)
+
+# 3小时后
+dt = datetime.now()
+dt = dt + timedelta(hours=3)
+print(dt)
+
+# 3小时前
+print(datetime.now() + timedelta(hours=-3))
+# 3小时30秒后
+print(datetime.now() + timedelta(hours=3, seconds=30))
+
+## datetime.datetime 与 datetime.datetime对象，返回 datetime.timedelta
+
+dt = datetime.now()
+# 利用timedelta得出10小时后的datetime
+dt2 = datetime.now() + timedelta(hours=10)
+# 计算2个datetime的差值
+td = dt2 - dt
+print(td)  # 10:00:00 不满1天
+# 是一个 timedelta 类型，表示 差值
+print(type(td))  # <class 'datetime.timedelta'>
+# 以(days, seconds, microseconds)形式表示
+print(td.seconds)  # 36000s
+print(td.days)  # 0 不足一天
+print(td.microseconds)  # 0 大于1s,用second表示
+
+# 用timedelta与date, time 对象进行时间运算
+date1 = date.today()
+print(date1)
+date2 = date1 + timedelta(days=1)
+print(date2)
+print(type(date2))  # date 对象
+
+td2 = date2 - date1
+print(td2)  # 1 day, 0:00:00
+print(type(td2))
+
+import datetime
+time1 = datetime.time(20, 30, 30)
+print(time1)
+# time2 = time1 + timedelta(seconds=30)  # unsupported operand type(s) for +: 'datetime.time' and 'datetime.timedelta'
