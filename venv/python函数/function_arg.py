@@ -5,9 +5,6 @@
 # @File   : function_arg.py
 
 
-
-
-
 # 可变数量的参数
 # *toppings 实际是一个空元组
 def make_pizza(*toppings):
@@ -18,3 +15,4 @@ make_pizza('pepperoni')
 make_pizza('mushrooms', 'green peppers', 'extra cheese')
 
 make_pizza()
+
