@@ -5,11 +5,10 @@
 # @File   : daemon2.py
 
 
-
 """
 类的封装
-
 """
+
 
 class JieCheng(object):
     """求阶乘"""
