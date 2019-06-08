@@ -10,6 +10,7 @@ r"""
 
 import pdb
 
+
 class People():
     """class of people."""
 
@@ -36,6 +37,8 @@ class Student(People):
         print("%s is %d years old, she is at Upper %d grade." % (self.name,
                                                                  self.age,
                                                                  self.grade))
+
+
 s1 = Student('lisa', 18, 95, 12)
 pdb.set_trace()
 s1.speak()

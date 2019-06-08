@@ -39,5 +39,6 @@ class Student(People):
 
 s1 = Student('lisa', 18, 95, 12)
 s1.speak()
-
+s2 = Student('yan', 7000, 90, 99)
+s2.speak()
 
