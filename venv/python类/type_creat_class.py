@@ -51,6 +51,7 @@ def study(cls):
 def cal_student_num():
     pass
 
+
 # 开始调用type()函数创建类
 A = type(
     # name 要创建的类名

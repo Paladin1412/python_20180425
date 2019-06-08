@@ -27,7 +27,6 @@
 # print("studennt1's name is {0}".format(student1.name))
 
 
-
 class Student(object):
     """表示学生群体的一个类"""
 
@@ -39,6 +38,7 @@ class Student(object):
         self.__job = job
         # 保护变量，本身及子类可以访问
         self._score= 99
+
     def print_score(self):
         """打印学生的分数"""
         print("{0} : {1}".format(self.name, self.age))

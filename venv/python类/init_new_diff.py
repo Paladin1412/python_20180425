@@ -11,6 +11,7 @@ __new__() 创建实例时被调用
 
 """
 
+
 # 只有 __init__() 初始化
 class Person(object):
     """a people class"""
