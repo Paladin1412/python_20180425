@@ -46,6 +46,7 @@ s2.speak()
 # 多继承
 F = type('Food', (), {'remember2buy': 'spam'})
 E = type('Eggs', (F,), {'remember2buy': 'eggs'})
-G = type('GoodFood', (F, E), {})  # under Python 2.3 this is an error!
+#G = type('GoodFood', (F, E), {})  # under Python 2.3 this is an error!
+G = type('GoodFood', (E, F), {})
 print(G.__mro__)
 
