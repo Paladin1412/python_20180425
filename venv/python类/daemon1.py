@@ -56,3 +56,10 @@ print(student1._score)
 # Python不允许实例化的类访问私有数据，但你可以使用 object._className__attrName 访问属性
 
 print("studennt1's job is {0}".format(student1._Student__job))
+
+
+# 一种错误写法
+
+student1.__job = "docter"  # 不是在修改私有变量，而是给实例student1新增了一个__name变量
+print(student1.__job)  # 运行不报错,输出新的__name变量
+print(student1._Student__job)  # 原来的私有变量没有变化
