@@ -3,6 +3,10 @@
 # @Time   : 2018/4/22 16:00
 # @Author : Merlinhuang
 # @File   : daemon1.py
+"""
+访问限制
+成员保护
+"""
 
 #
 # class Student(object):
