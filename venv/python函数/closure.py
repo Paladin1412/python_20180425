@@ -31,17 +31,26 @@ def count():
     """闭包"""
     fs = []
     for i in range(1, 4):
+        # 每次循环创建一个新的f函数
         def f():
             return i * i
-        # 把函数f追加进去
+        # 把新的函数f追加进去
         fs.append(f)
     return fs
 
 
-# 返回函数及其变量,不会立刻执行
-f1, f2, f3 = count()
-# 调用时执行，引用的内部变量i是3
-print(f1(), f2(), f3())
+# 返回循环时创建的三个函数, 分别赋给f1,f2,f3
+f1, f2, f3 = count()  # 此处i是循环变量，最终值为3
+# 调用时执行，最终引用的内部循环变量i是3
+print(f1(), f2(), f3())  # 9 9 9
+
+# 是一个元素为函数的list
+f4 = count()
+print(type(f4))
+print(f4)
+print(f4[0]())  # 调用时才执行，此时局部变量i=3
+print(f4[1]())  # 调用时才执行，此时局部变量i=3
+print(f4[2]())  # 调用时才执行，此时局部变量i=3
 
 
 def count():
