@@ -9,7 +9,7 @@ r"""
 """
 
 
-class People():
+class People:
     """class of people."""
 
     def __init__(self, name, age, weight):
@@ -26,7 +26,7 @@ class Student(People):
     """sub class"""
 
     def __init__(self, sub_name, sub_age, sub_weight, grade):
-        # 调用父类的__init__()方法
+        # 调用父类的__init__()方法,初始化实例的基类部分
         People.__init__(self, sub_name, sub_age, sub_weight)
         self.grade = grade
 

@@ -5,7 +5,7 @@
 # @File   : class_classmethod_staticmethod.py
 
 """
-Python类的静态方法和类方法区别
+Python类的实例方法、静态方法和类方法区别
 """
 
 
@@ -17,16 +17,17 @@ class Foo:
     def instance_method(self):
         """实例方法"""
         print("是类{}的实例方法，只能被实例对象调用".format(Foo))
-        # 通过self引用类属性
+        # 通过self访问类属性
         print(self.usage)
 
     # 静态方法参数无要求，类似于普通函数
     @staticmethod  # 装饰静态方法
-    def static_method():
+    def static_method(cls):  # 静态方法中cls为普通参数
         """静态方法"""
         print("是静态方法")
         # 使用类对象引用类属性
         print(Foo.usage)
+        print(str(cls))
 
     # 类方法第一个参数必须为cls，代表类本身
     @classmethod  # 装饰类方法
@@ -42,13 +43,13 @@ print(foo.usage)
 # 实例方法只能被实例对象调用
 foo.instance_method()
 # 静态方法可以被实例对象调用
-foo.static_method()
+foo.static_method("test cls")
 # 类方法可以被实例对象调用
 foo.class_method()
 print("------------")
 
 # 类对象调用静态方法
-Foo.static_method()
+Foo.static_method("test cls")
 # 类对象调用类方法
 Foo.class_method()
 

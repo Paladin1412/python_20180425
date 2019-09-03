@@ -69,7 +69,7 @@ print(d.year)
 print(d.month)
 print(d.day)
 
-# 方法 date.fromtimestamp(timestamp)	根据给定的时间戳，返回一个date对象
+# 类方法 date.fromtimestamp(timestamp)	根据给定的时间戳，返回一个date对象
 print(date.fromtimestamp(1688888))
 print(type(date.fromtimestamp(1688888)))
 # 指定时间戳的一个date对象

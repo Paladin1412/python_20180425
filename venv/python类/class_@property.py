@@ -6,7 +6,7 @@
 
 """
 内置property装饰器
-  - 类方法转为只读属性
+  - 类方法转为属性进行调用
   - 重新实现属性的setter、getter、deleter方法
 """
 
@@ -75,7 +75,7 @@ del s2.score  # 删除属性
 # print(s2.score)  # 报错，因为属性已经被删除
 
 
-# 只读属性，不定义 setter方法
+# 只读属性，不定义 setter 方法
 class Student:
     """"""
     def __init__(self, age):
