@@ -41,7 +41,7 @@ class Student(object):
         # 私有属性，只有实例本身可以访问
         self.__job = job
         # 保护变量，本身及子类可以访问
-        self._score= 99
+        self._score = 99
 
     def print_score(self):
         """打印学生的分数"""
