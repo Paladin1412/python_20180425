@@ -269,3 +269,151 @@ print(pobj['y'])
 del pobj['x']  # 调用 __delitem__()方法删除值
 print(pobj)
 print(len(pobj))
+
+
+# __getattr__() & __getattribute__() & __setattr__() & __delattr__() 方法
+"""
+定制属性的访问
+__getattr__(self,name)：如果name被访问，同时它不存在的时候，此方法被调用。
+__getattribute__(self,name)：当name被访问时自动被调用（注意：这个仅能用于新式类），无论name是否存在，都要被调用。
+__setattr__(self,name,value)：如果要给name赋值，就调用这个方法。
+__delattr__(self,name)：如果要删除name，这个方法就被调用。
+"""
+
+
+# __getattr__()
+# 调用类中不存在的属性时(不存在于对象的的__dict__中)，python会调用 __getattr__() 方法的返回值，尝试获得属性；
+# 已有的属性不会再 __getattr__()中查找;
+# __getattr__默认返回 None
+class Point:
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __getattr__(self, attr):
+        """外部调用类不存在的属性时，python解释器会调用__getattr__()的返回值"""
+        # 对'z'属性进行单独处理
+        if attr == 'z':
+            return self.x**2 + self.y**2
+        # 其他不存在的属性，__getattr__()默认返回 None
+
+
+p = Point(10, 5)
+print(p.z)  # 不存在的属性，到__getattr__()中查找
+print(p.w)  # None __getattr__()默认返回 None
+
+
+# __getattr__() 只响应几个特定的属性，需要加入异常处理，按照约定抛出AttributeError错误
+class Point:
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __getattr__(self, attr):
+        """外部调用类不存在的属性时，python解释器会调用__getattr__()的返回值"""
+        # 对'z'属性进行单独处理
+        if attr == 'z':
+            return self.x**2 + self.y**2
+        if attr == 'len':
+            # 返回函数/方法
+            return lambda: 25
+
+        # 只响应上面两个属性，其他属性都抛出异常
+        # raise AttributeError('Point object has no attribute %s' % attr)
+
+
+p = Point(4, 6)
+print(p.z)
+print(p.len())  # __getattr__返回值为函数
+print(p.w)  # 非特定的属性，抛出 AttributeError 错误
+print(p.__dict__)
+
+
+# __getattribute__()
+# 只要访问实例的属性，该方法就会被调用，不管属性是否存在
+# 当同时定义__getattribute__() 和 __getattr__()时，访问实例属性时，不会调用__getattr__()，除非__getattribute__()中显式调用了__getattr__()，
+# 或者前者返回AttributeError异常；
+# 为了避免无限递归，__getattribute__()要调用基类的__getattribute__()方法返回属性值
+class Point(object):
+    """test for __getattribute__()"""
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __getattribute__(self, name):
+        print("access attr via getattribute")  # 定制属性的访问过程，打印需要的信息
+        return object.__getattribute__(self, name)  # 避免无限递归
+        # return self.__dict__[name]  # 访问self.__dict__,要调用__getattribute__(),会导致无限递归（死循环）
+
+    def __getattr__(self, name):
+        if name == 'z':
+            return self.x**2 + self.y**2
+
+
+p = Point(3, 4)
+print(p.x)  # 访问存在的属性 access attr via getattribute
+print(p.y)
+print(p.a)  # 访问不存在的属性， 先调用__getattribute__(),报AttributeError异常，然后通过调用__getattr__(),返回默认值None
+# access attr via getattribute
+# None
+
+
+# __setattr__ __delattr__()
+class Point(object):
+    """
+    实现：
+    __setattr__(self, name, value)  设置实例属性时调用
+    __delattr__(self, name)  删除实例的属性时调用
+    """
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __getattr__(self, attr):
+        """属性不存在时，调用"""
+        if attr == 'z':
+            return 0
+        raise AttributeError("Point object has no attribute %s" % attr)
+
+    def __setattr__(self, name, value):
+        """给实例的属性设置值时，调用"""
+        # 设置属性及其值, 涉及到实例的所有属性的设置
+        print("set attr via __setattr__")
+        # self.__dict__[name] = value  # 将属性和值保存到__dict__中
+        # 调用基类的同名方法实现
+        return object.__setattr__(self, name, value)
+
+    def __delattr__(self, name):
+        """删除实例属性值"""
+        print("del attr via __delattr__")
+        return object.__delattr__(self, name)
+
+
+p = Point()
+print(p.z)
+p.len = 15
+print(p.len)
+del p.len  # 调用 __delattr__() 方法
+# print(p.len)  # 报错，属性已经被删除
+
+
+# __call__()方法，使实例可被调用
+class Point:
+
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+
+    def __call__(self, z):
+        """直接对实例进行调用"""
+        return self.x + self.y + z
+
+
+p = Point(2, 3)
+# 使用 callable 判断对象是否能被调用
+callable(p)
+# 直接调用实例
+print(p(7))
