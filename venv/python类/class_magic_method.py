@@ -25,7 +25,8 @@ print(Foo.__doc__)
 class A:
     _dict = dict()
 
-    def __new__(cls):
+    def __new__(cls):  # 类方法
+        """先调用__new__创建实例"""
         if 'key' in A._dict:
             print("EXISTS")
             # 新创建的实例都指向第一个实例,每次都返回首次创建的实例
@@ -33,9 +34,10 @@ class A:
         else:
             print("NEW")
             # 只在创建第一个实例时执行一次
-            return object.__new__(cls)
+            return object.__new__(cls)  # 返回实例
 
-    def __init__(self):
+    def __init__(self):  # 实例方法
+        """再调用__init__初始化实例"""
         print("INIT")
         A._dict['key'] = self
         print(self)
@@ -69,12 +71,12 @@ class Foo:
         self.name = name
 
     def __str__(self):
-        return "Foo objet (name: %s)" % self.name
+        return "Foo object (name: %s)" % self.name
 
 
 Foo('coohx')  # <__main__.Foo object at 0x0215A190>
 # 打印输出__str__方法返回的内容
-print(Foo('coohx'))  # Foo objet (name: coohx)
+print(Foo('coohx'))  # Foo object (name: coohx)
 
 
 # __repr__()
@@ -85,16 +87,16 @@ class Foo:
         self.name = name
 
     def __str__(self):
-        return "Foo objet (name: %s). __str__" % self.name
+        return "Foo object (name: %s). __str__" % self.name
 
     def __repr__(self):
-        return "Foo objet (name: %s). __repr__" % self.name
+        return "Foo object (name: %s). __repr__" % self.name
 
 
 # 直接调用时返回__repr__方法的返回值
-Foo('coohx')  # Foo objet (name: coohx). __repr__
+Foo('coohx')  # Foo object (name: coohx). __repr__
 # 打印时输出__str__方法返回的内容
-print(Foo('coohx'))  # Foo objet (name: coohx). __str__
+print(Foo('coohx'))  # Foo object (name: coohx). __str__
 
 
 # 通常__str__ 和 __repr__ 方法的代码是一样的
@@ -105,7 +107,7 @@ class Foo:
         self.name = name
 
     def __str__(self):
-        return "Foo objet (name: %s)" % self.name
+        return "Foo object (name: %s)" % self.name
 
     __repr__ = __str__
 
@@ -188,7 +190,7 @@ class Fib:
     """slice in class's obj"""
 
     def __getitem__(self, n):
-        if isinstance(n, slice):
+        if isinstance(n, slice):  # 参数为切片对象
             a, b = 1, 1
             # 获取切片起始值、终止值
             start, stop = n.start, n.stop
@@ -203,7 +205,7 @@ class Fib:
                 a, b = b, a + b
             return L
 
-        if isinstance(n, int):
+        if isinstance(n, int):  # 参数为int
             a, b = 1, 1
             for v in range(n):
                 a, b = b, a + b
@@ -346,7 +348,7 @@ class Point(object):
     def __getattribute__(self, name):
         print("access attr via getattribute")  # 定制属性的访问过程，打印需要的信息
         return object.__getattribute__(self, name)  # 避免无限递归
-        # return self.__dict__[name]  # 访问self.__dict__,要调用__getattribute__(),会导致无限递归（死循环）
+        # return self.__dict__[name]  # 访问self.__dict__,要继续调用__getattribute__(),会导致无限递归（死循环）
 
     def __getattr__(self, name):
         if name == 'z':
@@ -414,6 +416,6 @@ class Point:
 
 p = Point(2, 3)
 # 使用 callable 判断对象是否能被调用
-callable(p)
+print(callable(p))  # True
 # 直接调用实例
 print(p(7))
