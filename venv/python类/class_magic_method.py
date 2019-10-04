@@ -415,7 +415,86 @@ class Point:
 
 
 p = Point(2, 3)
-# 使用 callable 判断对象是否能被调用
+# 使用 callable 判断对象是否能被调用，能被执行的对象就是一个Callable对象
 print(callable(p))  # True
 # 直接调用实例
 print(p(7))
+
+
+# __module__ 和 __class__
+# Python内建，无需自定义。
+# __module__ 表示当前操作的对象在属于哪个模块。
+# __class__ 表示当前操作的对象属于哪个类。
+class Foo:
+
+    pass
+
+
+obj = Foo()
+print(obj.__module__)  # __main__
+print(obj.__class__)  # <class '__main__.Foo'>
+
+
+# __del__() 析构方法，当对象在内存中被释放时，自动触发此方法
+# 此方法一般无须自定义，因为Python自带内存分配和释放机制，除非你需要在释放的时候指定做一些动作。
+# 析构函数的调用是由解释器在进行垃圾回收时自动触发执行的。
+class Foo:
+
+    def __del__(self):
+        print("我被回收了！")  # 定制回收
+
+
+obj = Foo()
+del obj  # 我被回收了！
+
+
+# __dict__ 列出类或对象的所有成员， python自建，无需用户自定义
+class Province:
+    """example for __dict__"""
+    country = 'China'
+
+    def __init__(self, name, count):
+        self.name = name
+        self.count = count
+
+    @staticmethod
+    def func():
+        print('func')
+
+
+# 获取类的成员
+print(Province.__dict__)
+# 获取对象obj1的成员
+obj1 = Province('ShanXi', 360000)
+print(obj1.__dict__)
+
+
+# __len__()
+# 在Python中，如果你调用内置的len()函数试图获取一个对象的长度，在后台，其实是去调用该对象的__len__()方法
+print(len('ABC'))
+print('ABC'.__len__())  # 等价
+
+
+# __add__: 加运算 __sub__: 减运算 __mul__: 乘运算 __div__: 除运算 __mod__: 求余运算 __pow__: 幂运算
+class Vector:
+    """example for arithmetic"""
+
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def __str__(self):
+        return 'vector (%d, %d)' % (self.a, self.b)
+
+    def __add__(self, other):
+        return Vector(self.a + other.a, self.b + other.b)
+
+
+v1 = Vector(3, 4)
+v2 = Vector(1, -2)
+print(v1 + v2)  # 实例
+
+
+# __author__ 代表作者信息
+__author__ = "merlin"
+print(__author__)
