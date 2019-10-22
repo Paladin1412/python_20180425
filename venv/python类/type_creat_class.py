@@ -36,16 +36,17 @@ class A(object):
     def cal_student_num():
         pass
 
+
 # 使用type()函数定义类
-
-
 # 先定义类内部的方法
 def __init__(self, name):
     self.name = name
 
+
 @classmethod
 def study(cls):
     pass
+
 
 @staticmethod
 def cal_student_num():
