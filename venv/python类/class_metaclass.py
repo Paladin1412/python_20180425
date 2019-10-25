@@ -47,3 +47,4 @@ class Foo(object, metaclass=PrefixMetaclass):
 f = Foo()
 print(f.my_name)
 f.my_bar()
+
