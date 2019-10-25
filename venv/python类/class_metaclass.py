@@ -17,6 +17,7 @@
 
 
 # 定义元类，控制上面类的创建行为
+# metaclass是类的模板，必须从‘type’类派生
 class PrefixMetaclass(type):  # 规范: 元类以Metaclass结尾
     """
     func:
@@ -35,9 +36,9 @@ class PrefixMetaclass(type):  # 规范: 元类以Metaclass结尾
         return type.__new__(cls, name, bases, _attrs)
 
 
-# 使用元类创建一个定制的类
-class Foo(object, metaclass=PrefixMetaclass):
-    # __metaclass__ = PrefixMetaclass
+# 定义类的时候，使用元类来定制类
+class Foo(object, metaclass=PrefixMetaclass):  # 关键字参数metaclass指定元类
+    # __metaclass__ = PrefixMetaclass  # python2 语法
     name = 'foo'
 
     def bar(self):
@@ -45,6 +46,25 @@ class Foo(object, metaclass=PrefixMetaclass):
 
 
 f = Foo()
+# 类Foo的属性名被元类修改
+# f.name  # 报错，AttributeError: 'Foo' object has no attribute 'name'
 print(f.my_name)
+# 类Foo方法名被元类修改
 f.my_bar()
-print(f.echo("metaclass"))
+# 元类给类Foo增加了echo方法
+print(f.echo("hello metaclass"))
+
+
+# 有继承的例子
+class Bar(Foo):
+    """继承Foo"""
+    name = "bar"
+    pass
+
+
+b = Bar()
+# print(b.name)  # 报错，类Bar没有这个属性
+# 类的属性被父类的元类修改,即元类会隐式的继承到子类
+print(b.my_name)
+b.my_bar()
+print(b.echo("hello bar metaclass"))
