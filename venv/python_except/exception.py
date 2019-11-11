@@ -121,6 +121,22 @@ try:
     print(x / y)
 except BaseException as e:
     print("BaseException: ", e)
-    raise SomeErr('invalid value')  # 抛出自定义异常
+    # raise SomeErr('invalid value')  # 抛出自定义异常
 else:
     print("no error!")
+
+
+class MyExceptError(Exception):  # 异常的名字都以Error结尾
+    """自定义异常"""
+
+    def __init__(self, msg):
+        self.message = msg
+
+    def __str__(self):
+        return self.message
+
+
+try:
+    raise MyExceptError("my exception was raised...")
+except MyExceptError as e:  # 捕获自定义的异常
+    print(e)
