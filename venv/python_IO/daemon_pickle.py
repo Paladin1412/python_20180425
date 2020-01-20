@@ -32,8 +32,8 @@ f.close()
 # 反序列化
 
 # pickle.loads() 对应 pickle.dumps(), 从bytes反序列化出对象，读取到内存
-un_serialization_date = pickle.loads(serialization_data)
-print(un_serialization_date)
+un_serialization_data = pickle.loads(serialization_data)
+print(un_serialization_data)
 
 # pickle.load() 方法 从一个file-like Object 中直接反序列化出对象
 f = open('dump.txt', 'rb')
