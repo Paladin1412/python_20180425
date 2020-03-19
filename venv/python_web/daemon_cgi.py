@@ -20,7 +20,7 @@ print('''
         <title>Hello web, first CGI program!</title>
       </head>
       <body>
-        <h2>Hello World! 测试 python cgi</h2>
+        <h2>Hello World! 测试python cgi中文编码</h2>
       </body>
       </html>
 ''')
