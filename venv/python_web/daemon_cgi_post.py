@@ -3,8 +3,8 @@
 
 
 """
-python cgi get方法处理
-url实例，get方法
+python cgi get/psot方法处理
+url实例，psot方法
 """
 
 
