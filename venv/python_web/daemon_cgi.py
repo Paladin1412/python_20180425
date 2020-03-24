@@ -6,10 +6,13 @@
 """
 
 
-import codecs
+# import codecs
 import sys
+import io
 # python3 标准输出指定为utf8,避免http服务器编码出错
-sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
+# sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
+# 或者
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 print("Content-type: text/html")  # http header
 print("")  # 空行，告诉浏览器结束头部
