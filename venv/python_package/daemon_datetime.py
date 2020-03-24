@@ -123,7 +123,7 @@ datetime模块下的时间类，只能处理时分秒。
         second, microsecond (default to zero)
         tzinfo (default to None)：tzinfo argument must be None or of a tzinfo subclass
         fold (keyword only, default to zero)
-        
+
 """
 print("The instance of datetime.time")
 # 实例化,默认参数 hour=0, minute=0, second=0, microsecond=0, tzinfo=None
@@ -186,7 +186,7 @@ print(time(10, 8, 30, 999).strftime("%H:%M:%S.%f"))
 datetime模块下的日期时间类, 是datetime.date类的子类
 定义: datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])
     The year, month and day arguments are required.
-    year, month=None, day=None, 
+    year, month=None, day=None,
     hour=0, minute=0, second=0,microsecond=0,
     tzinfo=None
 构造datetime实例时需要传递的参数：
@@ -330,6 +330,8 @@ print(datetime.now().ctime().__class__)  # <class 'str'>
 # dt.strftime(format) 返回指定格式的时间字符串
 print(datetime.now().strftime("%Y/%m/%d %H:%M:%S.%f"))
 print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+# HTTP头GMT时间格式字符串
+print(datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT"))
 
 
 # datetime.timedelta 类
