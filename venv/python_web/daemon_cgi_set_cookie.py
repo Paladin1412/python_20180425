@@ -14,7 +14,7 @@ sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
 # 发送MIME类型
 print("Content-Type: text/html")
 # 在http头部中发送cookie
-print('Set-Cookie: name="voip"; expires=Tue, 24 Mar 2020 23:20:09 GMT')
+print('Set-Cookie: name="voip"; expires=Tue, 31 Mar 2020 23:20:09 GMT')
 print('Set-Cookie: _addr="sz"')
 print("")
 print("""
