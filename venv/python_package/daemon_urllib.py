@@ -53,13 +53,16 @@ print(request.unquote('https://passport.weibo.cn/signin/login?entry=mweibo&res=w
 # 使用 Request 对象添加HTTP头，伪装浏览器
 url = "https://www.douban.com/search?q="
 url2 = 'https://yesno.wtf/api?answer=yes&forced=false&image=https://yesno.wtf/assets/yes/2.gif'
+url3= "http://api.om.oa.com/cgi-bin/svr_mgt/cgi-bin/api/api_get_host_by_ip.cgi?dept_id=-1&client_id=114&client_password=apd@OM114&ip_list=121.51.52.103"
 key = request.quote('罪恶都市')  # 中文字段，需要编码
-url_all = url2 + key
+url_all = url + key
 
 header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'}
 # 构造get请求对象,添加HTTP头，伪装浏览器
-req = request.Request(url_all, headers=header)
+#req = request.Request(url_all, headers=header)
+req = request.Request(url3, headers=header)
+
 
 with request.urlopen(req) as f:  # 爬取网页
     data = f.read()
