@@ -16,25 +16,25 @@ import json
 
 
 # 设置代理,默认使用系统环境变量http_proxy代理
-enable_proxy = True  # 代理开关
+enable_proxy = False  # 代理开关
 
 # 创建代理的Handler
-proxy_handler = request.ProxyHandler({
-    "https": "http://web-proxy.tencent.com:8080/",
-    "http": "http://web-proxy.tencent.com:8080/"
-    # "https": "http://127.0.0.1:12639/",
-    # "http": "http://127.0.0.1:12639/"
-})
-# 空代理
-null_proxy_handler = request.ProxyHandler({})
+# proxy_handler = request.ProxyHandler({
+    # "https": "http://web-proxy.tencent.com:8080/",
+    # "http": "http://web-proxy.tencent.com:8080/"
+    # # "https": "http://127.0.0.1:12639/",
+    # # "http": "http://127.0.0.1:12639/"
+# })
+# # 空代理
+# null_proxy_handler = request.ProxyHandler({})
 
-if enable_proxy:
-    # 通过urllib.request.build_opener()方法使用代理对象Handler，并创建opener对象
-    opener = request.build_opener(proxy_handler)
-else:
-    opener = request.build_opener(null_proxy_handler)
-# 构建全局opener，所有的urlopen()请求，都使用自定义代理
-request.install_opener(opener)
+# if enable_proxy:
+    # # 通过urllib.request.build_opener()方法使用代理对象Handler，并创建opener对象
+    # opener = request.build_opener(proxy_handler)
+# else:
+    # opener = request.build_opener(null_proxy_handler)
+# # 构建全局opener，所有的urlopen()请求，都使用自定义代理
+# #request.install_opener(opener)
 
 
 # request.urlopen() 打开网页
