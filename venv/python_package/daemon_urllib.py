@@ -84,7 +84,7 @@ header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'}
 # 构造get请求对象,添加HTTP头，伪装浏览器
 #req = request.Request(url_all, headers=header)
-req = request.Request(url_all, headers=header)
+req = request.Request(url3, headers=header)
 
 
 with request.urlopen(req) as f:  # 爬取网页
