@@ -109,7 +109,7 @@ login_data = parse.urlencode([  # 登录数据，用dict存储，parse.urlencode
     ('pagerefer', 'https://passport.weibo.cn/signin/welcome?entry=mweibo&r=http%3A%2F%2Fm.weibo.cn%2F')
 ]
 )
-print(login_data)
+print(type(login_data))
 
 # 构造HTTP请求
 req = request.Request('https://passport.weibo.cn/sso/login')
